@@ -1,4 +1,17 @@
-OR-software-tools-2015
-======================
+# MIT 15.S60 2015
 
-Repository for code/examples/instructions for the MIT course 15.S60 "Software Tools for Operations Research"
+## Software Tools for Operations Research
+
+### Schedule
+* [Introduction to R]
+* [Intermediate R]
+* [Visualization in R]
+* [Graphs]
+* [Simulations]
+* [Nonlinear Optimization]
+* [Advanced Optimization]
+* [Project]
+
+### Assignments
+Assignments should be submitted online via Stellar.
+
