@@ -1,5 +1,4 @@
 ## Introduction to R Pre-Assignment
-## Please e-mail jkung@mit.edu with any questions
 
 ## Installation Instructions
 
@@ -15,15 +14,21 @@ Once there, select your operating system:
 
 Copy and paste the following lines of code to the R Console:
 
+```
 library(stats)
 lm_test <- lm(mpg ~ hp + cyl + wt + gear, data = mtcars)
 summary(lm_test)
-
+```
 
 Press Enter and copy the output to a .txt file. 
 
 The first two lines of your output should look like:
 
+```
 Call:
 lm(formula = mpg ~ hp + cyl + wt + gear, data = mtcars)
+```
+
+## Questions?
+Please e-mail jkung@mit.edu.
 
