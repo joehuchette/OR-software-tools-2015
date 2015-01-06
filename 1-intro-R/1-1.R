@@ -145,7 +145,7 @@ str(df.runways)
 df.runways
 
 # Use data.frame$col to extract the column col from a data frame
-df.runways$locations
+df.runways$airports
 
 # The summary function can often give you useful information 
 summary(df.runways)
@@ -154,7 +154,7 @@ summary(df.runways$airports)
 # Use the subset function to extract rows of interest from 
 # a data frame (first argument is the data frame, second
 # argument is the criterion on which to select)
-runwaysBOS = subset(df.runways, locations=="BOS")
+runwaysBOS = subset(df.runways, airports=="BOS")
 runwaysBOS
 
 # Alternatively, since we know that rows 1 and 6 correspond
