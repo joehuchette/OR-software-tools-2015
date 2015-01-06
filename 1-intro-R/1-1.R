@@ -321,11 +321,13 @@ boxplot(CEOcomp$Years)
 #  b) Edit the histogram plot above to ensure that it has a title
 #     and that the x-axis is labeled properly
 
-
+##
+# 3) Use the tapply() function on df.runways to obtain a table
+#    detailing the total capacity at each airport (Hint: use the sum() function)
 
 
 ##
-# 3a) Load the on-time performance dataset "otp.csv"
+# 4a) Load the on-time performance dataset "otp.csv"
 
 
 

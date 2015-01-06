@@ -1,0 +1,298 @@
+par(mfrow = c(2,2))
+plot(anscombe$x1, anscombe$y1)
+abline(a1)
+plot(anscombe$x1, anscombe$y1)#
+abline(a1)#
+#
+plot(anscombe$x2, anscombe$y2)#
+abline(a2)#
+#
+plot(anscombe$x3, anscombe$y3)#
+abline(a3)#
+#
+plot(anscombe$x4, anscombe$y4)#
+abline(a4)
+par(mfrow = c(2,2))#
+plot(anscombe$x1, anscombe$y1)#
+abline(a1)#
+#
+plot(anscombe$x2, anscombe$y2)#
+abline(a2)#
+#
+plot(anscombe$x3, anscombe$y3)#
+abline(a3)#
+#
+plot(anscombe$x4, anscombe$y4)#
+abline(a4)
+ggplot(data = anscombe, aes(x = x1, y = y1))
+ggplot(data = anscombe, aes(x = x1, y = y1)) + geom_point
+library(ggplot2)#
+library(maps)#
+library(ggmap)#
+data(anscombe)#
+str(anscombe)
+ggplot(data = anscombe, aes(x = x1, y = y1)) + geom_point
+ggplot(data = anscombe, aes(x = x1, y = y1)) + geom_point()
+ggplot(data = anscombe, aes(x = x1, y = y1)) + geom_line()
+ggplot(data = anscombe, aes(x = x1, y = y1)) + geom_line(color = "blue", size = 3, shape = 17)
+ggplot(data = anscombe, aes(x = x1, y = y1)) + geom_point(color = "blue", size = 3, shape = 17)
+ggplot(data = anscombe, aes(x = x1, y = y1)) + geom_point(color = "blue", size = 3, shape = 17) + ggtitle("Anscombe #1")
+pdf("MyPlot.pdf")
+ggsave()
+anscombe_plot = ggplot(data = anscombe, aes(x = x1, y = y1)) + geom_point(color = "blue", size = 3, shape = 17) + ggtitle("Anscombe #1")
+print(anscombe_plot)
+data(iris)
+str(iris)
+iris_plot = ggplot(data = iris, aes(x = Petal.Length, y = Sepal.Length)) + geom_point(color = "red", size = 3, shape = 16) + ggtitle("Sepal Length vs. Petal Length")
+print(iris_plot)
+iris_plot
+ggplot(data = iris, aes(x = Petal.Length, y = Sepal.Length)) + geom_point(color = "red", size = 3, shape = 16) + ggtitle("Sepal Length vs. Petal Length")
+library(stats)
+library(stats)#
+lm_test <- lm(mpg ~ hp + cyl + wt + gear, data = mtcars)#
+summary(lm_test)
+source("Assignment.R")
+getwd()
+setwd("~/Desktop/OR-software-tools-2015/1-intro-R/")
+source("Assignment.R")
+3^(6-4)
+22/7
+16^(1/4)
+6*9 ==
+42
+6*9 ==
+54
+sqrt(2)
+abs(-2)
+sin(pi/2)
+cos(0)
+exp(-1)
+(1 - 1/100)^100
+log(exp(1))
+help(log)
+?log
+x <- 2^3
+y = 6
+x
+y
+print(x)
+print(y)
+ls()
+z <- seq(1:10)
+z <- 1:10 #this also works
+z
+z[5]
+sum(z)
+double_z <- z^2
+double_z
+airports = c("BOS", "JFK", "ORD", "SFO", "ATL")
+capacities = c(20, 45, 50, 35, 55)
+cbind(airports, capacities)
+df1 = data.frame(airports, capacities)
+df1
+class(airports)
+str(airports)
+class(capacities)
+str(capacities)
+class(df.runways)
+str(df.runways)
+df.runways = rbind(df1, df2)
+df1 = data.frame(airports, capacities)
+capacities = c(3, 2, 5, 1, 3)
+df2 = data.frame(airports, capacities)
+airports = c("BOS", "JFK", "ORD", "SFO", "ATL")#
+capacities = c(20, 45, 50, 35, 55)#
+#
+# Place vectors together as a matrix using bind#
+#
+# bind together as columns#
+cbind(airports, capacities)#
+#
+# bind together as rows#
+rbind(airports, capacities)#
+#
+# Create a data frame#
+df1 = data.frame(airports, capacities)#
+#
+# Add additional runways#
+capacities = c(3, 2, 5, 1, 3)#
+#
+# Create another data frame#
+df2 = data.frame(airports, capacities)#
+#
+# Append rows of the second data frame to those of the first#
+df.runways = rbind(df1, df2)
+class(df.runways)
+str(df.runways)
+df.runways
+df.runways$locations
+df.runways$airports
+summary(df.runways)
+summary(df.runways$airports)
+df.runways$airports
+summary(df.runways)
+summary(df.runways$airports)
+runwaysBOS = subset(df.runways, locations=="BOS")
+runwaysBOS = subset(df.runways, airports=="BOS")
+runwaysBOS
+runwaysBOS = df.runways[c(1,6), ]
+str(runwaysBOS)
+runwaysBOS$airports = factor(runwaysBOS$airports)
+str(runwaysBOS)
+sum(runwaysBOS$capacities)
+airports = c("BOS", "JFK", "ORD", "SFO", "ATL")
+capacities = c(20, 45, 50, 35, 55)
+cbind(airports, capacities)
+rbind(airports, capacities)
+df1 = data.frame(airports, capacities)
+capacities = c(3, 2, 5, 1, 3)
+df2 = data.frame(airports, capacities)
+df.runways = rbind(df1, df2)
+class(airports)
+str(airports)
+class(capacities)
+str(capacities)
+class(df.runways)
+str(df.runways)
+df.runways
+df.runways$airports
+summary(df.runways)
+summary(df.runways$airports)
+runwaysBOS = subset(df.runways, airports=="BOS")
+runwaysBOS
+runwaysBOS = df.runways[c(1,6), ]
+str(runwaysBOS)
+runwaysBOS$airports = factor(runwaysBOS$airports)
+str(runwaysBOS)
+sum(runwaysBOS$capacities)
+CEOcomp = read.csv(file = "CEOcomp.csv", header = TRUE)
+str(CEOcomp)
+names(CEOcomp)
+CEOcomp$Years
+CEOcomp$MBA
+attach(CEOcomp)
+Years
+MBA
+detach(CEOcomp)
+mean(CEOcomp$Years)
+sd(CEOcomp$Years)
+summary(CEOcomp$Years)
+plot(CEOcomp$Years, CEOcomp$TotalCompensation)
+plot(CEOcomp$Years, CEOcomp$TotalCompensation, main="Total Compensation by Year", xlab = "Years of Experience", ylab = "Total Compensation (thousand USD)")
+plot(CEOcomp$Years, CEOcomp$TotalCompensation)
+plot(CEOcomp$Years, CEOcomp$TotalCompensation, main="Total Compensation by Year", xlab = "Years of Experience", ylab = "Total Compensation (thousand USD)")
+tapply(CEOcomp$TotalCompensation, CEOcomp$MBA, mean)
+table(CEOcomp$Year, CEOcomp$MBA)
+CEOmissing = read.csv("CEOmissing.csv")
+summary(CEOmissing)
+str(CEOmissing)
+5 == NA
+NA == NA
+is.na(5)
+is.na(NA)
+CEOnomissing = subset(CEOmissing, !is.na(TotalCompensation) & !is.na(Years) & !is.na(ChangeStockPrice) & !is.na(ChangeCompanySales) & !is.na(MBA))
+summary(CEOnomissing)
+str(CEOnomissing)
+CEOomitmissing = na.omit(CEOmissing)
+summary(CEOomitmissing)
+str(CEOomitmissing)
+save.image("eg.RData")
+save(CEOcomp, file = "CEOcomp.RData")
+?seq
+seq(from = 2, to = 20, by = 2)
+seq(2, 20, 2)
+2*(1:10)
+hist(CEOcomp$Years)
+hist(CEOcomp$Years, main = "Years of Experience", xlab= "Years", ylab = "freq")
+otp = read.csv("~/Desktop/otp.csv")
+str(otp)
+summary(otp$Origin)
+summary(otp$Origin)
+summary(otp$Origin)[1:10]
+names(summary(otp$Origin))[1:10]
+names(summary(otp$Dest))[1:10]
+topten = names(summary(otp$Dest))[1:10]
+truncated = subset(otp, is.element(otp$Dest, topten) & is.element(otp$Origin, topten))
+table(truncated$Origin, truncated$Dest)
+truncated$Origin = factor(truncated$Origin)
+truncated$Dest = factor(truncated$Dest)
+table(truncated$Origin, truncated$Dest)
+LB = read.csv("LettersBinary.csv")
+CEOcomp = read.csv(file = "CEOcomp.csv", header = TRUE)
+CEO.linReg <- lm(TotalCompensation ~ Years + ChangeStockPrice + ChangeCompanySales + MBA, data = CEOcomp)
+summary(CEO.linReg)
+CEO.linReg$coefficients
+CEO.linReg$residuals
+confint(CEO.linReg, level = 0.95)
+cor(CEOcomp$TotalCompensation, CEOcomp$Years)
+cor(CEOcomp)
+cor.test(CEOcomp$TotalCompensation, CEOcomp$Years)
+TitanicPassengers = read.csv("TitanicPassengers.csv")
+str(TitanicPassengers)
+library(caTools)
+split <- sample.split(TitanicPassengers$Survived, SplitRatio = 0.6)
+split
+TitanicTrain <- TitanicPassengers[split, ]
+TitanicTest <- TitanicPassengers[!split, ]
+Titanic.logReg = glm(Survived ~ Class + Age + Sex, data = TitanicTrain, family = binomial)
+summary(Titanic.logReg)
+Titanic.logPred = predict(Titanic.logReg, type = "response")
+split = sample.split(LB, SplitRatio = 0.6)
+LB.train = LB[split, ]
+LB.test = LB[!split, ]
+str(LB.train)
+str(LB.test)
+letters.formula <- formula(Letter ~ x1 + x2 + x3 + x4 + x5 + x6 + x7 + x8 + x9 + x10 + x11 + x12 + x13 + x14 + x15 + x16)
+log.LB = glm(letters.formula, data = LB.train, family = binomial)
+predict(log.LB, newdata = LB.test, type = "response")
+str(LB.test)
+table(LB.test$Letter, round(predict(log.LB, newdata = LB.test, type= "response")))
+library(rpart)
+Titanic.CART = rpart(Survived ~ Class + Age + Sex, data = TitanicTrain, method = "class", control = rpart.control(minbucket = 10))
+Titanic.CART = rpart(Survived ~ Class + Age + Sex, data = TitanicTrain, method = "class", control = rpart.control(minbucket = 10))
+plot(Titanic.CART)
+text(Titanic.CART, pretty = 0)
+Titanic.CARTpredTest = predict(Titanic.CART, newdata = TitanicTest, type = "class")
+CARTpredTable <- table(TitanicTest$Survived, Titanic.CARTpredTest)
+CARTpredTable
+sum(diag(CARTpredTable))/nrow(TitanicTest)
+CEOcomp.CART = rpart(TotalCompensation ~ Years + ChangeStockPrice + ChangeCompanySales + MBA, data = CEOcomp, method = "anova", control = rpart.control(minsplit = 5))
+predict(CEOcomp.CART)
+CEOcomp$TotalCompensation
+library(randomForest)
+install.packages("randomForest")
+library(randomForest)
+Titanic.forest = randomForest(Survived ~ Class + Age + Sex, data = TitanicTrain, nodesize = 10, ntree = 200)
+str(TitanicTrain$Survived)
+TitanicTrain$Survived <- factor(TitanicTrain$Survived)
+TitanicTest$Survived <- factor(TitanicTest$Survived)
+Titanic.forest = randomForest(Survived ~ Class + Age + Sex, data = TitanicTrain, nodesize = 10, ntree = 200)
+forest.table <- table(TitanicTest$Survived, Titanic.forestPred)
+Titanic.forest = randomForest(Survived ~ Class + Age + Sex, data = TitanicTrain, nodesize = 10, ntree = 200)
+Titanic.forestPred = predict(Titanic.forest, newdata = TitanicTest)
+forest.table <- table(TitanicTest$Survived, Titanic.forestPred)
+forest.table
+sum(diag(forest.table))/nrow(TitanicTest)
+?randomForest
+data()
+data(iris)
+str(iris)
+IrisDist = dist(iris[1:4], method = "euclidean")
+IrisHC = hclust(IrisDist, method = "ward")
+IrisHC = hclust(IrisDist, method = "ward.D")
+plot(IrisHC)
+IrisDist
+rect.hclust(IrisHC, k = 3, border = "red")
+plot(IrisHC)
+rect.hclust(IrisHC, k = 3, border = "red")
+IrisHCGroups = cutree(IrisHC, k = 3)
+table(iris$Species, IrisHCGroups)
+tapply(iris$Petal.Length, IrisHCGroups, mean)
+IrisKMC = kmeans(iris[1:4], centers = 3, iter.max = 100)
+str(IrisKMC)
+IrisKMCGroups = IrisKMC$cluster
+table(iris$Species, IrisKMCGroups)
+IrisKMC = kmeans(iris[1:4], centers = 3, iter.max = 10000)
+IrisKMCGroups = IrisKMC$cluster
+table(iris$Species, IrisKMCGroups)
+IrisKMC$centers
