@@ -331,7 +331,7 @@ boxplot(CEOcomp$Years)
 
 
 #  b) Take a look at the structure of the on-time performance dataset. This 
-#     dataset gives the on-time performance of airplanes in December of 2013.
+#     dataset gives the on-time performance of airplanes in September of 2014.
 
 
 
@@ -342,7 +342,8 @@ boxplot(CEOcomp$Years)
 
 
 #  d**) Determine the ten airports that have the highest number of departing
-#     and arriving flights.  Use the "Origin" and "Dest" columns.
+#     and arriving flights.  Use the "Origin" and "Dest" columns.  Create a table
+# 	  that contains the number of flights between these top ten airports.
 #     (Hint: some of the following functions might be useful -- 
 #     summary, table, subset, factor, names, is.element, sort)
 

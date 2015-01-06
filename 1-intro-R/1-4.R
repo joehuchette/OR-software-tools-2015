@@ -33,7 +33,7 @@ IrisDist = dist(iris[1:4], method = "euclidean")
 # method = "ward" to minimize the distance between
 # the clusters and the variance within each 
 # of the clusters
-IrisHC = hclust(IrisDist, method = "ward")
+IrisHC = hclust(IrisDist, method = "ward.D")
 
 # Plot a dendrogram
 plot(IrisHC)

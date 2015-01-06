@@ -76,7 +76,7 @@ sum(diag(forest.table))/nrow(TitanicTest)
 
 # 1) Build a CART model on the training data. Set the
 #    minbucket parameter to 25. Then test it on the 
-#    testing set, create a confusion matrix, and determin
+#    testing set, create a confusion matrix, and determine
 #    the accuracy.
 
 letters.formula <- formula(Letter ~ x1 + x2 + x3 + x4 + x5 + x6 + x7 + x8 + x9 + x10 + x11 + x12 + x13 + x14 + x15 + x16)
