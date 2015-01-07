@@ -20,7 +20,9 @@ flights.bos = sqldf("select * from 'flights' where Origin='BOS'")
 --------------------------
 
 Question 1: what is the most common day of the week for departures in the full data set?
+
 Question 2: what is the least common day of the week for departures from Boston?
+
 Hint: use the table() function
 
 When you're done, you can delete the file On_Time_On_Time_Performance_2013_12.csv. Keep the csv file written during the homework.
