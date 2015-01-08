@@ -34,3 +34,5 @@ When you're done, you can delete the file On_Time_On_Time_Performance_2013_12.cs
 ## Questions?
 
 Please email efields@mit.edu
+
+The completed flights.csv is too big for the github repo but can be downloaded from https://dl.dropboxusercontent.com/u/1877897/flights.csv
