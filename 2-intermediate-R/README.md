@@ -1,5 +1,7 @@
 ## Intermediate R Pre-Assignment
 
+__Note that ``sqldf`` requires a relatively recent version of R (at least 3.1.0). Make sure your version is up-to-date.__
+
 1. Download <http://www.transtats.bts.gov/Download/On_Time_On_Time_Performance_2013_12.zip>
 2. Extract the CSV file to your Intermediate R directory.
 3. Fire up R, change your working directory to the Intermediate R directory, and run the following (could take a few minutes):
