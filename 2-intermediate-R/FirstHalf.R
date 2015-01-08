@@ -5,12 +5,10 @@ Intermediate R: Data Wrangling
 
 # First, load datasets. It's often more convenient to just keep strings as
 # strings, so we pass stringsAsFactors=FALSE.
-setwd("C://Users/Clark/Documents/Software_Tools_2015")
 flights = read.csv("flights.csv", stringsAsFactors=FALSE)
 
 # Let's familiarize ourselves a bit with the data
 str(flights)
-
 
 ###################################
 # Section 2: tapply/table with built-in commands
@@ -19,8 +17,18 @@ str(flights)
 # to use it.
 # [[Pretty picture of how tapply() works, in slides]]
 
-# To ask questions about delays, we need to exclude the cancelled flights
+# Let's look at the ArrDelayMinutes column
+summary(flights$ArrDelayMinutes)
+
+# Why the NAs?
+table(flights$Cancelled,is.na(flights$ArrDelayMinutes))
+
+# To ask questions about delays, we need to exclude the NAs
 flightsFlown = subset(flights, !is.na(flights$ArrDelayMinutes))
+
+# There are some huge outliers
+hist(flightsFlown$ArrDelayMinutes)
+flightsFlown = subset(flightsFlown, flights$ArrDelayMinutes < 1000)
 
 # What is the average arrival delay by day of month?
 tapply(flightsFlown$ArrDelayMinutes, flightsFlown$DayofMonth, mean)
@@ -41,7 +49,8 @@ tapply(flightsFlown$DepDelayMinutes, flightsFlown$DayOfWeek, mean)
 # Hint: R has a 'max' function.
 tapply(flightsFlown$TaxiIn, flightsFlown$Dest, max)
 
-# What is the proportion of cancelled flights by airline?
+# Extra question: What is the proportion of cancelled flights by airline?
+# Hint: The average of TRUE/FALSE values is the proportion that are TRUE.
 # Which airlines have the highest and lowest proportions of cancelled flights? 
 sort(tapply(flights$Cancelled, flights$Carrier, mean))
 
@@ -49,57 +58,68 @@ sort(tapply(flights$Cancelled, flights$Carrier, mean))
 # Section 3: tapply with user-defined functions
 
 # Often we need to write our own functions to answer specific questions we have 
-# about the data. We will write a function that calculates the proportion of 
-# arrival delay time caused by weather.
+# about the data. We will write a function that finds the most common origin  
+# airport over a data set of flights.
 
-# Some of the data (about 150,000 entries) has information about causes of the
-# delays. We'll take one more subset of the data to exclude all entries without
-# delay type information.
-flightsDelayInfo = subset(flights, !is.na(flights$WeatherDelay))
+# Let's look at how frequently each origin appears in the data set
+tab = sort(table(flights$Origin))
 
-# Exploring specific delay information
-summary(flightsDelayInfo$WeatherDelay)
-summary(flightsDelayInfo$ArrDelayMinutes)
+# Reminder: names function
+names(tab)
 
-# We need to calculate the proportion of minutes of arrival delay caused by weather for the month.
-sum(flightsDelayInfo$WeatherDelay)/sum(flightsDelayInfo$ArrDelayMinutes)
-
-# Got to here
-
-# Let's write a function that does this for any vectors wDelay and totalDelay:
-weather.delay.prop = function(wDelay,totalDelay) {
-	prop = sum(wDelay)/sum(totalDelay)
-	return(prop)
-} 
-
-# Testing the function on the whole data set
-weather.delay.prop(flightsDelayInfo$WeatherDelay,flightsDelayInfo$ArrDelayMinutes)
-
-# #########################
-# Assignment 2 (Section 3)
-
-# For each carrier (airline), what is the most common origin airport?
-#  -Write a function that finds the most common origin airport
-#  -Use tapply on the flights data frame using your function
-
+# Writing a function that returns the most common origin given a data set
 most.common = function(x) {
 	tab = sort(table(x), decreasing = TRUE)
 	common.origin = names(tab)[1]
 	return(common.origin)
 }
 
-tapply(flights$Origin,flights$Carrier,most.common.origin)
+# Apply most.common to each carrier using tapply
+tapply(flights$Origin,flights$Carrier,most.common)
+
+# #########################
+# Assignment 2 (Section 3)
+
+# One simple way to measure the “skew level” of a distribution is 
+# to subtract the median from the mean Write a function that calculates 
+# this measure of skew for arrival delays (ArrDelayMinutes) and use
+# tapply to calculate it for each carrier.
+# Hint: use the 'median' function.
+
+shift = function(x) {
+	mean(x) - median(x)
+}
+
+tapply(flightsFlown$ArrDelayMinutes, flightsFlown$Carrier, shift)
+
+# Extra: What is the most common Origin-Destination pair for
+# each carrier? (Hint: use the paste() function. What would you
+give as the first argument for tapply?)
+
+tapply(paste(flights$Origin,flights$Dest), flights$Carrier, most.common)
 
 ##########################
 # Section 4: Split-apply-combine
 
 # We want to create a new data frame with delay information about each origin 
-# airport. 
+# airport. Some of the data (about 150,000 entries) has information about 
+# causes of the delays. We'll take one more subset of the data to exclude 
+# all entries without delay type information.
+
+# Which entries to delete?
+summary(flights$WeatherDelay)
+summary(flights$CarrierDelay)
+flightsDelayInfo = subset(flights, !is.na(flights$WeatherDelay))
+
+# Is the total of the delay columns equal to departure or arrival delay?
+summary(flightsDelayInfo$LateAircraftDelay + flightsDelayInfo$NASDelay +
+flightsDelayInfo$CarrierDelay + flightsDelayInfo$WeatherDelay + 
+flightsDelayInfo$SecurityDelay == flightsDelayInfo$ArrDelayMinutes)
 
 # [[Picture of split-apply-combine; split breaks large df into smaller ones,
 #    lapply converts small data frames into 1-row data frames; do.call(rbind)
 #    combines them into a single data frame.]]
-    
+
 # Let's first split by origin.
 spl = split(flightsDelayInfo, flightsDelayInfo$Origin)
 str(spl[[1]])
