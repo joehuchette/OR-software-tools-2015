@@ -17,32 +17,32 @@ You will need the "flights.csv" dataset that you created in your pre-class assig
 ### Installation Instructions:
 
 Please run the following commands in an R console:
+
+```
 install.packages("ggplot2")
 install.packages("maps")
 install.packages("ggmap")
 install.packages("mapproj")
+```
 
 ### Assignment:
 
 Run the following code. After each plot is produced, save it, and finally submit a document on Stellar containing the three plots.
 
+```
 library(ggplot2)
-
 ggplot(mtcars, aes(x = wt, y = mpg)) + geom_point()
-
-
+```
+```
 library(maps)
-
 italy = map_data("italy")
-
 ggplot(italy, aes(x = long, y = lat, group = group)) + geom_polygon()
-
-
+```
+```
 library(ggmap)
-
 MIT = get_map(location = "Massachusetts Institute of Technology", zoom = 15)
-
 ggmap(MIT)
+```
 
 ### Questions?
 
