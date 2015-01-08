@@ -1,0 +1,1 @@
+top20 = c("ATL","LAX","ORD","DFW","DEN","JFK","SFO","CLT","LAS","PHX","MIA","IAH","EWR","MCO","SEA","MSP","DTW","BOS","PHL","LGA")
