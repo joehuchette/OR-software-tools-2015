@@ -79,7 +79,7 @@ dev.off()
 # 80 (128) for blue. Because transparency is not specified it is assumed to
 # be non-transparent. If we add a pair of hexidecimal digits at the end
 # they represent the transparency proportion. #00FF80FF is non-transparent,
-# #00FF8080 is partially transparent, and #00FF8000 if full transparent
+# #00FF8080 is partially transparent, and #00FF8000 is fully transparent
 # aka invisible. Our light gray color will be #EEEEEE22, which is mostly
 # transparent.
 
