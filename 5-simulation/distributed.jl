@@ -183,7 +183,7 @@ end
 # And now to process our results
 function process(res::Results, n)
 	mean = res.estimate / n
-	stdev = res.estimateSq / n - mean^2
+	stdev = sqrt(res.estimateSq / n - mean^2)
 
 	println("Grand mean: $mean")
 	println("Std  Error: $stdev")
