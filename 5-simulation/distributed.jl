@@ -55,9 +55,13 @@ end
 n = 1000
 piEst = 4/n * remotecall_fetch(2,estimatePi,n) # spawn f on proc 2 and fetch results
 
-# Assignment: Run your simulation from part 1 on a different processor and fetch the results
+# Assignment: Write a function that runs the simulation in bank_10.jl and returns how long it
+# took to process all the customers. Run this function on a different core
 
-# Solution: 
+	# Hint: After the simulation is run, sim.time contains the time of the last scheduled event
+
+
+
 
 
 # Using all cores
@@ -67,7 +71,7 @@ piEst = 4/n * remotecall_fetch(2,estimatePi,n) # spawn f on proc 2 and fetch res
 # Could do it manually:
 
 nCpus = length(workers())
-totalSims = 10^7
+totalSims = 8 * 10^7
 sims_per_cpu = div(totalSims,nCpus) # integer arithmatic
 
 results = cell(nCpus)
@@ -111,9 +115,15 @@ benchmark(10)
 benchmark(10^2)
 benchmark(10^7)
 
-# Assignment 2: Use PMAP to run simulation and parallel and collect several metrics
+# Assignment 2: Use PMAP to run bank_10.jl in parallel to estimate the mean time to process all the customers
+	# Hint: define a function that takes the random seed as the input and returns the time
 
-# awaiting he's code to collect something interesting
+
+
+
+
+
+
 
 # When doesn't pmap scale well? 
 
@@ -127,7 +137,7 @@ benchmark(10^7)
 # Master proc compiles summary files from batch summaries (reduce)
 
 # Syntax:
-# @parallel (reducer) for ...
+# @parallel [reducer] for ...
 # [code]
 # end
 
@@ -181,9 +191,9 @@ results = @parallel myReduce for i in 1:n
 end
 
 # And now to process our results
-function process(res::Results, n)
-	mean = res.estimate / n
-	stdev = sqrt(res.estimateSq / n - mean^2)
+function process(results::Results, n)
+	mean = results.estimate / n
+	stdev = sqrt(results.estimateSq / n - mean^2)
 
 	println("Grand mean: $mean")
 	println("Std  Error: $stdev")
@@ -192,5 +202,13 @@ end
 process(results,n)
 
 # Assignment: Write your own MapReduce implementation to calculate the mean and standard devation
-# of [OTHER STATISTIC] 
+# of the time to process all the customers in bank_10.jl
+
+
+
+
+
+
+
+
 	
