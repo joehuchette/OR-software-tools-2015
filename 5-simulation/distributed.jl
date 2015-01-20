@@ -55,7 +55,7 @@ end
 n = 1000
 piEst = 4/n * remotecall_fetch(2,estimatePi,n) # spawn f on proc 2 and fetch results
 
-# Assignment: Write a function that runs the simulation in bank_10.jl and returns how long it
+# Assignment: Write a function that runs the simulation in bank_11.jl and returns how long it
 # took to process all the customers. Run this function on a different core
 
 	# Hint: After the simulation is run, sim.time contains the time of the last scheduled event
@@ -115,7 +115,7 @@ benchmark(10)
 benchmark(10^2)
 benchmark(10^7)
 
-# Assignment 2: Use PMAP to run bank_10.jl in parallel to estimate the mean time to process all the customers
+# Assignment 2: Use PMAP to run bank_11.jl in parallel to estimate the mean time to process all the customers
 	# Hint: define a function that takes the random seed as the input and returns the time
 
 
@@ -202,7 +202,7 @@ end
 process(results,n)
 
 # Assignment: Write your own MapReduce implementation to calculate the mean and standard devation
-# of the time to process all the customers in bank_10.jl
+# of the time to process all the customers in bank_11.jl
 
 
 
