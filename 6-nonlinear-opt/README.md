@@ -5,7 +5,7 @@ This class covers topics in nonlinear optimization. Code will be posted before t
 ## Pre-assignment:
 
 ### Install Julia and IJulia
-IJulia is required for this class. See the instructions at http://www.juliaopt.org/install.pdf. Alternatively, you may use [JuliaBox](https://juliabox.org/) to follow along with the class if there's any trouble with a local installation.
+IJulia is required for this class. See the instructions at http://www.juliaopt.org/install.pdf. Alternatively, you may use [JuliaBox](https://juliabox.org/) to complete the assignment and follow along with the class if there's any trouble with a local installation.
 
 ### Install packages
 We will use the following packages:
