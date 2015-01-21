@@ -18,7 +18,7 @@ We will use the following packages:
 - Interact
 - ECOS
 
-Install each one with ``Pkg.add("xxx")`` where ``xxx`` is the package name.
+First run ``Pkg.update()`` to update the package database, then install each one with ``Pkg.add("xxx")`` where ``xxx`` is the package name.
 
 ### Test the installation
 
