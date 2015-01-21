@@ -10,6 +10,7 @@ IJulia is required for this class. See the instructions at http://www.juliaopt.o
 ### Install packages
 We will use the following packages:
 - JuMP
+- Optim
 - Ipopt
 - Convex
 - Distributions
