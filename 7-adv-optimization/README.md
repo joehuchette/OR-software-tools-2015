@@ -1,10 +1,10 @@
-### Mixed-integer optimization
+# Mixed-integer optimization
 
 ## Preassignment
 
 For this class, we will be using the Gurobi mixed-integer programming solver. 
 
-# Installing Gurobi
+### Installing Gurobi
 Gurobi is commercial software, but they have a very permissive (and free!) academic license. If you have an older version of Gurobi (>= 5.5) on your computer, that should be fine.
 
 1. Go to www.gurobi.com
